@@ -1,6 +1,8 @@
+// src/ImageViewProvider.ts
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Logger } from './Logger';
 
 export class ImageViewProvider implements vscode.WebviewViewProvider {
 
@@ -15,6 +17,7 @@ export class ImageViewProvider implements vscode.WebviewViewProvider {
         context: vscode.WebviewViewResolveContext,
         _token: vscode.CancellationToken,
     ) {
+        Logger.log(`Resolviendo la vista: ${webviewView.viewType}`);
         webviewView.webview.options = {
             enableScripts: true,
             localResourceRoots: [this._extensionUri]
@@ -24,24 +27,21 @@ export class ImageViewProvider implements vscode.WebviewViewProvider {
     }
 
     private _getHtmlForWebview(webview: vscode.Webview): string {
-        // En el futuro, aquí irá la lógica para la imagen seleccionada por el usuario.
-        // Por ahora, nos centramos en mostrar el SVG por defecto.
+        Logger.log("Generando HTML para la webview...");
 
         let imageHtml: string;
-
-        // 1. Construir la ruta absoluta y segura al archivo SVG por defecto.
         const defaultImagePath = path.join(this._extensionUri.fsPath, 'media', 'logo.svg');
+        Logger.log(`Ruta a la imagen por defecto: ${defaultImagePath}`);
 
-        // 2. Leer el contenido del archivo SVG de forma síncrona.
         try {
             const svgContent = fs.readFileSync(defaultImagePath, 'utf8');
             imageHtml = svgContent;
+            Logger.log("Imagen por defecto leída correctamente.");
         } catch (err) {
-            console.error('Error al leer el archivo SVG por defecto:', err);
-            imageHtml = `<p>Error: No se pudo cargar la imagen por defecto. Verifique la ruta y los permisos.</p>`;
+            Logger.log(`ERROR al leer el archivo SVG por defecto: ${err}`);
+            imageHtml = `<p>Error al cargar la imagen por defecto.</p>`;
         }
 
-        // 3. Devolver el HTML completo que se mostrará en la webview.
         return `
             <!DOCTYPE html>
             <html lang="en">
@@ -50,27 +50,9 @@ export class ImageViewProvider implements vscode.WebviewViewProvider {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Project Image</title>
                 <style>
-                    /* Reseteo básico para eliminar comportamientos inesperados */
-                    * {
-                        margin: 0;
-                        padding: 0;
-                        box-sizing: border-box;
-                    }
-                    body, html {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: transparent;
-                    }
-                    /* Estilizamos directamente el SVG incrustado */
-                    svg {
-                        max-width: 100%;
-                        max-height: 100%;
-                        object-fit: contain;
-                        padding: 5px; /* Pequeño margen interior para que no toque los bordes */
-                    }
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body, html { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: transparent; }
+                    svg { max-width: 100%; max-height: 100%; object-fit: contain; padding: 5px; }
                 </style>
             </head>
             <body>
@@ -79,4 +61,4 @@ export class ImageViewProvider implements vscode.WebviewViewProvider {
             </html>
         `;
     }
-} // <-- Esta es la llave final de la clase 'ImageViewProvider'
+}

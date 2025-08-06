@@ -9,6 +9,10 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onView:project-identifier.view.explorer",
+    "onView:project-identifier.view.scm"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [

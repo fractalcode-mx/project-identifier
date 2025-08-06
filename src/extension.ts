@@ -1,10 +1,15 @@
+// src/extension.ts
 import * as vscode from 'vscode';
-import { ImageViewProvider } from './ImageViewProvider'; // <-- 1. Importamos nuestra clase
+import { ImageViewProvider } from './ImageViewProvider';
+import { Logger } from './Logger';
 
 export function activate(context: vscode.ExtensionContext) {
 
-	// Pasamos el URI de la extensión al constructor
+    Logger.initialize();
+    Logger.log("Activando extensión 'Project Identifier'...");
+
 	const imageViewProvider = new ImageViewProvider(context.extensionUri);
+    Logger.log("Instancia de ImageViewProvider creada.");
 
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider(
@@ -12,6 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 			imageViewProvider
 		)
 	);
+    Logger.log("Proveedor de vista registrado para 'explorer'.");
 
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider(
@@ -19,9 +25,11 @@ export function activate(context: vscode.ExtensionContext) {
 			imageViewProvider
 		)
 	);
+    Logger.log("Proveedor de vista registrado para 'scm'.");
 
-	console.log('¡La extensión "Project Identifier" está activa!');
+    Logger.log("¡Extensión completamente activa!");
 }
 
-// Esta función se llama cuando tu extensión se desactiva
-export function deactivate() {}
+export function deactivate() {
+    Logger.log("Desactivando la extensión.");
+}
