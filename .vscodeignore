@@ -12,3 +12,9 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 **/.vscode-test.*
+.gitattributes
+.git/**
+eslint.config.mjs
+tsconfig.json
+.eslintrc.json
+package-lock.json

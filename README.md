@@ -1,71 +1,55 @@
-# project-identifier README
+<div align="center">
+    <img alt="Fractalcode Logo" src="./media/fractalcode.png" width="150">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Project Identifier Logo" src="./media/logo-adjusted.png" width="150">
+</div>
 
-This is the README for your extension "project-identifier". After writing up a brief description, we recommend including the following sections.
+# Project Identifier by Fractalcode
+
+**Project Identifier** is a Visual Studio Code extension designed to visually anchor your workflow. It displays a customizable project logo directly in the Explorer and Source Control sidebars, helping you instantly recognize which project context you are currently working in.
+
+Its primary purpose is to reduce cognitive load and prevent context-switching errors, especially for developers who frequently juggle multiple open windows or similar-looking projects.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+*   **Visual Context Anchor**: Displays a clear, prominent image in your sidebar that acts as a visual totem for your project.
+*   **Customizable Logo**: Easily swap the default logo for your project's brand, a framework icon, or any visual identifier you prefer (supports PNG, JPG, SVG, GIF, WEBP).
+*   **Persistent Configuration**: Your selected image is saved per workspace. Close VS Code, restart your machine, or switch projects—your identifier remains exactly where you left it.
+*   **Integrated Experience**: Uses native VS Code dialogs and theming to feel like a built-in part of the editor, not an external add-on.
+*   **Zero Config Start**: Works out of the box with a default placeholder, requiring no complex setup files to get started.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+### Setting a Custom Image
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1.  Look for the **"PROJECT IMAGE"** (or "IMAGEN DEL PROYECTO") view in your **Explorer** sidebar.
+2.  Hover over the view title bar to reveal the **Edit (Pencil)** icon.
+3.  Click the pencil icon.
+4.  Select your desired image file from the native file dialog.
+5.  The view will instantly update to show your new project identifier.
+
+### Resetting
+
+Currently, the image is persisted in the workspace state. To change it, simply repeat the selection process with a new image.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+*   Visual Studio Code v1.102.0 or higher.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension contributes the following views:
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+*   `project-identifier.view.explorer`: The identifier panel in the File Explorer.
+*   `project-identifier.view.scm`: The identifier panel in the Source Control (Git) view.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+*   None at this moment. If you find a bug, please report it on our [GitHub Repository](https://github.com/fractalcodemx/project-identifier).
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+<div align="center">
+    Built with ❤️ by <strong>Fractalcode</strong><br>
+    <em>Engineering robust solutions, one commit at a time.</em>
+</div>
