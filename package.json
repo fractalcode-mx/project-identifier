@@ -2,11 +2,11 @@
   "name": "project-identifier",
   "displayName": "Project Identifier",
   "description": "Displays a project-specific image in the sidebar for easy identification.",
-  "publisher": "fractalcodemx",
+  "publisher": "fractalcode-mx",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fractalcodemx/project-identifier.git"
+    "url": "https://github.com/fractalcode-mx/project-identifier.git"
   },
   "engines": {
     "vscode": "^1.102.0"
