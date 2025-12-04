@@ -6,6 +6,8 @@
 
 # Project Identifier by Fractalcode
 
+<img alt="Project Identifier demo" src="./media/demo.gif">
+
 **Project Identifier** is a Visual Studio Code extension designed to visually anchor your workflow. It displays a customizable project logo directly in the Explorer and Source Control sidebars, helping you instantly recognize which project context you are currently working in.
 
 Its primary purpose is to reduce cognitive load and prevent context-switching errors, especially for developers who frequently juggle multiple open windows or similar-looking projects.
